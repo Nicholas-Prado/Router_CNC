@@ -14,7 +14,7 @@
     + #### Diagrama de blocos do sistema:
 
       <p align="center">
-        <img width="540" height="320" src="diagrams/system_block_diagram.PNG">
+        <img width="540" height="320" src="images/blocks-diagram.PNG">
       </p>
 
     + #### Diagrama esquemático do sistema:
@@ -43,7 +43,7 @@
       
       
       <p align="center">
-        <img width="280" height="95" src="photos/keyboard.PNG">
+        <img width="280" height="95" src="images/teclado.PNG">
       </p>
       
     + Se o modo manual não estiver ativado, o controlador aceita comandos pela entrada

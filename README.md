@@ -148,7 +148,7 @@
 + ## Software
   
   + **IDE:** A IDE utilizada foi a [Sloeber](https://eclipse.baeyens.it/), IDE do Eclipse para Arduino.
-  + **Bibliotecas utilizadas:** LiquidCrystal, [Bounce2](https://github.com/thomasfredericks/Bounce2) e as bibliotecas criadas contidas em [myLibs](https://github.com/jessenKS/Router-CNC/tree/master/myLibs).
+  + **Bibliotecas utilizadas:** LiquidCrystal, [Bounce2](https://github.com/thomasfredericks/Bounce2)
   + **Arquivo .hex:** Ao compilar a aplicação, os arquivos .hex e .elf ficam localizados na pasta Release.
     
 

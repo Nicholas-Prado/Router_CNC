@@ -25,6 +25,24 @@
      
 + ## Placa de circuito impresso (PCB)
 
+     + #### Preview
+     
+     <p align="center">
+     <img width="1000" height="320" src="images/preview-pcb.PNG">
+     </p>
+     
+     + #### No Components View
+     
+     <p align="center">
+     <img width="1000" height="320" src="images/top-pcb.PNG">
+     </p>
+
+     + #### Top View
+     
+     <p align="center">
+     <img width="1000" height="320" src="images/top-view-components.PNG">
+     </p>
+
      
 + ## Interface
 

@@ -28,19 +28,19 @@
      + #### Preview
      
      <p align="center">
-     <img width="1000" height="320" src="images/preview-pcb.PNG">
+     <img width="832" height="505" src="images/preview-pcb.PNG">
      </p>
      
      + #### No Components View
      
      <p align="center">
-     <img width="1000" height="320" src="images/top-pcb.PNG">
+     <img width="958" height="585" src="images/top-pcb.PNG">
      </p>
 
      + #### Top View
      
      <p align="center">
-     <img width="1000" height="320" src="images/top-view-components.PNG">
+     <img width="963" height="581" src="images/top-view-components.PNG">
      </p>
 
      

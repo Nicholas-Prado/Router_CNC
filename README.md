@@ -20,10 +20,28 @@
     + #### Diagrama esquemático do sistema(Simulação):
     
     <p align="center">
-     <img width="540" height="320" src="images/schematic-simualtion.PNG">
+     <img width="635" height="611" src="images/schematic-simualtion.PNG">
      </p>
      
 + ## Placa de circuito impresso (PCB)
+
+     + #### Preview
+     
+     <p align="center">
+     <img width="832" height="505" src="images/preview-pcb.PNG">
+     </p>
+     
+     + #### No Components View
+     
+     <p align="center">
+     <img width="958" height="585" src="images/top-pcb.PNG">
+     </p>
+
+     + #### Top View
+     
+     <p align="center">
+     <img width="963" height="581" src="images/top-view-components.PNG">
+     </p>
 
      
 + ## Interface
@@ -137,4 +155,4 @@
 + ## Autores
 
 * **Nicholas Prado** - [Nicholas-Prado](https://github.com/Nicholas-Prado)
-* **Samuel Antunes ** - [Samu](https://github.com/samu158820)
+* **Samuel Antunes** - [Samu](https://github.com/samu158820)

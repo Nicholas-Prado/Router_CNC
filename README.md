@@ -155,4 +155,4 @@
 + ## Autores
 
 * **Nicholas Prado** - [Nicholas-Prado](https://github.com/Nicholas-Prado)
-* **Samuel Antunes ** - [Samu](https://github.com/samu158820)
+* **Samuel Antunes** - [Samu](https://github.com/samu158820)

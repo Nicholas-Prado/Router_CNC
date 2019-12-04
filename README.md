@@ -23,12 +23,6 @@
      <img width="540" height="320" src="images/schematic-simualtion.PNG">
      </p>
      
-    + #### Diagrama esquemático do sistema(PCB):
-    <p align="center">
-     <img width="540" height="320" src="images/schematic-simualtion.PNG">
-     </p>
-    
-     
 + ## Placa de circuito impresso (PCB)
 
      

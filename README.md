@@ -26,48 +26,6 @@
      
 + ## Placa de circuito impresso (PCB)
 
-     + #### Preview
-     
-     <p align="center">
-     <img width="1000" height="320" src="photos/pcb/pcb_preview.PNG">
-     </p>
-     
-     + #### No Components View
-     
-     <p align="center">
-     <img width="1000" height="320" src="photos/pcb/no_components_view.PNG">
-     </p>
-
-     + #### Top View
-     
-     <p align="center">
-     <img width="1000" height="320" src="photos/pcb/top_view.PNG">
-     </p>
-     
-     + #### Front View
-     
-     <p align="center">
-     <img width="1000" height="320" src="photos/pcb/front_view.PNG">
-     </p>
-     
-     + #### Back View
-     
-     <p align="center">
-     <img width="1000" height="320" src="photos/pcb/back_view.PNG">
-     </p>
-     
-     + #### Left View
-     
-     <p align="center">
-     <img width="440" height="620" src="photos/pcb/left_view.PNG">
-     </p>
-     
-     + #### Right View
-     
-     <p align="center">
-     <img width="440" height="620" src="photos/pcb/right_view.PNG">
-     </p>
-       
      
 + ## Interface
 
@@ -159,11 +117,6 @@
          
        + Se o modo manual não estiver ativado, o controlador aceita comandos pela entrada
          serial, como descrito acima.
-
-    <p align="center">
-     <img width="540" height="320" src="">
-     </p>
-  
   
 + ## Periféricos
 
@@ -184,5 +137,5 @@
 
 + ## Autores
 
-* **Felipe Tavares** - [felipe-tavares](https://github.com/felipe-tavares)
-* **Jessen Krupinski Scariot** - [jessenKS](https://github.com/jessenKS)
+* **Nicholas Prado** - [Nicholas-Prado](https://github.com/Nicholas-Prado)
+* **Samuel Antunes ** - [Samu](https://github.com/samu158820)

@@ -90,25 +90,25 @@
 
     + ## Funcionamento
 
-      + Ao energizar o sistema a [tela inicial](photos/screens/initial_screen.jpg) é exibida, possiblitando retornar ao ponto de         referência quando pressionada a tecla S.
+      + Ao energizar o sistema a [tela inicial](images/initial_screen.jpg) é exibida, possiblitando retornar ao ponto de         referência quando pressionada a tecla S.
         Caso a entrada Cover Closed esteja aberta (chave aberta), e a tecla S for
-        pressionada, o display informa o [erro](photos/screens/error_screen.jpg) durante 3 segundos e retorna à tela                     inicial.
+        pressionada, o display informa o [erro](images/error_screen.jpg) durante 3 segundos e retorna à tela                     inicial.
         
       + Após satisfeita a condição da entrada Cover Closed, quando pressionada a tecla S,
-        o sistema entra no modo de referência, nesse modo os motores dos eixo X, Y e Z se movem (em velocidade baixa) no sentido         horário até atingirem o sensores de referência, Home X, Home Y e Home Z. Durante este processo é mostrada a                     [tela de referenciamento](photos/screens/referencing_screen.jpg). Se em qualquer momento a entrada Cover Closed for             desacionada, a tela de [erro](photos/screens/error_screen.jpg) será mostrada por 3 segundos e retornar à [tela inicial]         (photos/screens/initial_screen.jpg) para reiniciar o processo.
+        o sistema entra no modo de referência, nesse modo os motores dos eixo X, Y e Z se movem (em velocidade baixa) no sentido         horário até atingirem o sensores de referência, Home X, Home Y e Home Z. Durante este processo é mostrada a                     [tela de referenciamento](images/referencing_screen.jpg). Se em qualquer momento a entrada Cover Closed for             desacionada, a tela de [erro](images/error_screen.jpg) será mostrada por 3 segundos e retornar à [tela inicial]         (photos/screens/initial_screen.jpg) para reiniciar o processo.
        
       + Quando o processo de referenciamento estiver concluído e os sensores Home X, Home
-        Y e Home Z estiverem ativados, será mostrada a [tela de posição](photos/screens/position_screen.jpg).
+        Y e Home Z estiverem ativados, será mostrada a [tela de posição](images/position_screen.jpg).
         
       + No processo de referência as variáveis de contagem de posição são zeradas e
         a variável eixos referenciados setada para um.
         
-      + A partir da [tela de posição](photos/screens/position_screen.jpg) é possível mover 
+      + A partir da [tela de posição](images/position_screen.jpg) é possível mover 
         os eixo de forma manual (X, Y e Z), para tanto deverá ser pressionado a tecla P a fim de selecionar um dos eixos. O eixo
         selecionado é destacado com o caractere de sublinhado, indicando o movimento
         manual habilitado. Para sair do modo manual deve-se percorrer os eixos Z, X e Y,
         pressionando a tecla P, se a seleção atual for do eixo Y e a tecla P for pressionada
-        novamente, o modo manual é desabilitado e a [tela de posição](photos/screens/position_screen.jpg) é mostrada novamente.
+        novamente, o modo manual é desabilitado e a [tela de posição](images/position_screen.jpg) é mostrada novamente.
         
       + Em modo manual o eixo selecionado é movido através da teclas + e - . Quando
         pressionado a tecla + o eixo se move no sentido horário (CW), quando pressionada a tecla -
@@ -123,7 +123,7 @@
           ● Eixo Z: 0... 150mm<br>
           
           Caso o eixo que está sendo movimentado atinja o final do curso, uma mensagem
-          de [erro](photos/screens/overtravel_screen.jpg) deverá ser informada, indicando o eixo e o sentido em que ocorreu o             final do curso.
+          de [erro](images/overtravel_screen.jpg) deverá ser informada, indicando o eixo e o sentido em que ocorreu o             final do curso.
           
        + Durante o modo manual, o eixo spindle é ligado através da tecla S. Pressionando a
          tecla S uma vez o eixo Spindle liga em velocidade fixa de 500 RPM, Pressionando

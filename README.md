@@ -17,12 +17,17 @@
         <img width="540" height="320" src="images/blocks-diagram.PNG">
       </p>
 
-    + #### Diagrama esquemático do sistema:
+    + #### Diagrama esquemático do sistema(Simulação):
     
     <p align="center">
-     <img width="540" height="320" src="diagrams/schematic_diagram.PNG">
+     <img width="540" height="320" src="images/schematic-simualtion.PNG">
      </p>
      
+    + #### Diagrama esquemático do sistema(PCB):
+    <p align="center">
+     <img width="540" height="320" src="images/schematic-simualtion.PNG">
+     </p>
+    
      
 + ## Placa de circuito impresso (PCB)
 

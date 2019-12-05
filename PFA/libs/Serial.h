@@ -14,7 +14,7 @@
 #define LOW_SPEED 50
 #define MED_SPEED 100
 #define HIGH_SPEED 200
-#define SPINDLE_RPM 100 //modificar na hora de testes finais
+#define SPINDLE_RPM 200 //modificar na hora de testes finais
 
 #define X_AXIS_INF_LIMIT 0
 #define X_AXIS_SUP_LIMIT 200

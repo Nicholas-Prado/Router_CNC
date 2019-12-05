@@ -25,5 +25,6 @@ void Y_Screen();
 void OT_Screen(char axis, char sinal);
 void init_lcd();
 void refresh_lcd();
+void unset_cursor();
 
 #endif /* LIBS_TELAS_H_ */

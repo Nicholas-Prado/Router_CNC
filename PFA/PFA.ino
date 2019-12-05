@@ -90,8 +90,15 @@ void ISRA()
   StepperZ.setSpeed(0);
   analogWrite(spindleA, 0);
   analogWrite(spindleB, 0);
-	Error_Screen();
-	StateAtual = inite;
+  Error_Screen();
+  for(int i = 0; i < 30; i++)
+  {
+	  delay(100);
+	  HeartBeat();
+  }
+  refresh_lcd();
+
+  StateAtual = inite;
 }
 
 
@@ -123,7 +130,7 @@ void cncMove(int x_steps, int y_steps, int resto_x, int resto_y)
       }
       while(speedNOW != set_spindle_speed)
       {
-        analogWrite(spindleA, i);
+        analogWrite(spindleB, i);
 
         HeartBeat();
 
@@ -150,7 +157,7 @@ void cncMove(int x_steps, int y_steps, int resto_x, int resto_y)
       }
       while(speedNOW != set_spindle_speed)
       {
-        analogWrite(spindleB, i);
+        analogWrite(spindleA, i);
 
         HeartBeat();
 
@@ -234,7 +241,8 @@ void cncMove(int x_steps, int y_steps, int resto_x, int resto_y)
 
 void Interpolate()
 {
-  int x_dif, y_dif; //se negativo, andar em sentido oposto
+  int x_dif = 0;
+  int y_dif = 0; //se negativo, andar em sentido oposto
   bool flagx = 0;//negativo?
   bool flagy = 0;
   int resto_x = 0;
@@ -335,6 +343,8 @@ void setup()
 	  init_lcd();
 }
 
+int test=0;
+
 // The loop function is called in an endless loop
 void loop()
 {
@@ -373,6 +383,13 @@ void loop()
 	  		if(digitalRead(Coverpin)==0)
 	  		{
 	  			Error_Screen();
+
+	  			for(int j = 0; j<30; j++)
+	  			{
+	  				HeartBeat();
+	  				delay(100);
+	  			}
+	  			refresh_lcd();
 	  			StateAtual = inite;
 	  		}
 	  		else{
@@ -382,20 +399,22 @@ void loop()
 	    			StepperY.setSpeed(LOW_SPEED); // seta para velocidade de rotação baixa
 	    			StepperZ.setSpeed(LOW_SPEED); // seta para velocidade de rotação baixa
 
-	    			//se travar aqui, rever programação de motores
 	    			while(digitalRead(HomeXpin==0)){
 						HeartBeat();
 						StepperX.step(stepsPerRevolution);
+						if(digitalRead(HomeXpin)) break;
 	    			}
 
 	    			while(digitalRead(HomeYpin)==0){
 						HeartBeat();
 						StepperY.step(stepsPerRevolution);
+						if(digitalRead(HomeYpin)) break;
 	    			}
 
 	    			while(digitalRead(HomeZpin)==0){
 	    				HeartBeat();
 	    				StepperZ.step(stepsPerRevolution);
+	    				if(digitalRead(HomeZpin)) break;
 	    			}
 	    			ref_axis = 1;
 	        }
@@ -414,17 +433,14 @@ void loop()
 				switch (conta_tela)
 				{
 					case 1:
-						Z_Screen();
 						now_axis = 'Z';
 					break;
 
 					case 2:
-						X_Screen();
 						now_axis = 'Y';
 					break;
 
 					case 3:
-						Y_Screen();
 						now_axis = 'X';
 					break;
 
@@ -436,117 +452,112 @@ void loop()
 						Pos_Screen(speedNOW, z_axis_pos, x_axis_pos, y_axis_pos);
 				}
 			}
-			switch (now_axis)
-			{
-				case 'Z':
+			if(now_axis=='Z'){
+					Z_Screen();
 					update_buttons();
-					if(up_button())
-					{
+					if(up_button()){
 						//gira z em cw
 						z_axis_pos++;
-						if(z_axis_pos == Z_AXIS_SUP_LIMIT)
+						if(z_axis_pos > Z_AXIS_SUP_LIMIT)
 						{
-							StepperZ.step(stepsPerRevolution);
 							OT_Screen(now_axis, '+');
-						}else if(z_axis_pos > Z_AXIS_SUP_LIMIT)
-						{
-							z_axis_pos--;
-							OT_Screen(now_axis, '+');
+							delay(400);
+							refresh_lcd();
+							z_axis_pos = Z_AXIS_SUP_LIMIT;
+							Pos_Screen(speedNOW, z_axis_pos, x_axis_pos, y_axis_pos);
 						}else{
 							StepperZ.step(stepsPerRevolution);
+							refresh_lcd();
+							Pos_Screen(speedNOW, z_axis_pos, x_axis_pos, y_axis_pos);
 						}
-					}else if(down_button())
-					{
+					}
+					if(down_button()){
 						//gira z em ccw
 						z_axis_pos--;
-						if(z_axis_pos == Z_AXIS_INF_LIMIT)
+						if(z_axis_pos < Z_AXIS_INF_LIMIT)
 						{
-							StepperZ.step(-stepsPerRevolution);
 							OT_Screen(now_axis, '-');
-						}else if(z_axis_pos < Z_AXIS_INF_LIMIT)
-						{
-							z_axis_pos++;
-							OT_Screen(now_axis, '-');
+							delay(400);
+							refresh_lcd();
+							z_axis_pos = Z_AXIS_INF_LIMIT;
+							Pos_Screen(speedNOW, z_axis_pos, x_axis_pos, y_axis_pos);
 						}else{
 							StepperZ.step(-stepsPerRevolution);
+							refresh_lcd();
+							Pos_Screen(speedNOW, z_axis_pos, x_axis_pos, y_axis_pos);
 						}
 					}
-					Z_Screen();
-				break;
-
-				case 'Y':
+			}else if(now_axis=='Y'){
+					Y_Screen();
 					update_buttons();
-					if(up_button())
-					{
+					if(up_button()){
 						//gira y em cw
 						y_axis_pos++;
-					  if(y_axis_pos == Y_AXIS_SUP_LIMIT)
-					  {
-						  StepperY.step(stepsPerRevolution);
-						  OT_Screen(now_axis, '+');
-					  }else if(y_axis_pos > Y_AXIS_SUP_LIMIT)
-					 {
-						  y_axis_pos--;
-						  OT_Screen(now_axis, '+');
-					 }else{
+						if(y_axis_pos > Y_AXIS_SUP_LIMIT)
+						{
+							OT_Screen(now_axis, '+');
+							delay(400);
+							refresh_lcd();
+							y_axis_pos = Y_AXIS_SUP_LIMIT;
+							Pos_Screen(speedNOW, z_axis_pos, x_axis_pos, y_axis_pos);
+						}else{
 						 StepperY.step(stepsPerRevolution);
-					 }
-					}else if(down_button())
-					{
+						 refresh_lcd();
+						 Pos_Screen(speedNOW, z_axis_pos, x_axis_pos, y_axis_pos);
+						}
+					}
+					if(down_button()){
 						//gira y em ccw
 						y_axis_pos--;
-					  if(y_axis_pos == Y_AXIS_INF_LIMIT)
-					  {
-						  StepperY.step(-stepsPerRevolution);
-						  OT_Screen(now_axis, '-');
-					  }else if(y_axis_pos < Y_AXIS_INF_LIMIT)
-					 {
-						  y_axis_pos++;
-						  OT_Screen(now_axis, '-');
-					 }else{
+						if(y_axis_pos < Y_AXIS_INF_LIMIT)
+						{
+							OT_Screen(now_axis, '+');
+							delay(400);
+							refresh_lcd();
+							y_axis_pos = Y_AXIS_INF_LIMIT;
+							Pos_Screen(speedNOW, z_axis_pos, x_axis_pos, y_axis_pos);
+						}else{
 						 StepperY.step(-stepsPerRevolution);
-					 }
+						 refresh_lcd();
+						 Pos_Screen(speedNOW, z_axis_pos, x_axis_pos, y_axis_pos);
+						}
 					}
-					Y_Screen();
-				break;
-
-				case 'X':
+			}else if(now_axis=='X'){
+					X_Screen();
 					update_buttons();
-					if(up_button())
-					{
+					if(up_button()){
 						//gira x em cw
-						x_axis_pos++;
-					  if(x_axis_pos == X_AXIS_SUP_LIMIT)
-					  {
-						  StepperX.step(stepsPerRevolution);
-						  OT_Screen(now_axis, '+');
-					  }else if(x_axis_pos > X_AXIS_SUP_LIMIT)
-					 {
-						  x_axis_pos--;
-						  OT_Screen(now_axis, '+');
-					 }else{
+					  x_axis_pos+=1;
+					  if(x_axis_pos > X_AXIS_SUP_LIMIT)
+						{
+							OT_Screen(now_axis, '+');
+							delay(400);
+							refresh_lcd();
+							x_axis_pos = X_AXIS_SUP_LIMIT;
+							Pos_Screen(speedNOW, z_axis_pos, x_axis_pos, y_axis_pos);
+						}else{
 						 StepperX.step(stepsPerRevolution);
-					 }
-					}else if(down_button())
-					{
+						 refresh_lcd();
+						 Pos_Screen(speedNOW, z_axis_pos, x_axis_pos, y_axis_pos);
+						}
+					}
+					if(down_button()){
 						//gira x em ccw
 						x_axis_pos--;
-					  if(x_axis_pos == X_AXIS_INF_LIMIT)
-					  {
-						  StepperX.step(-stepsPerRevolution);
-						  OT_Screen(now_axis, '-');
-					  }else if(x_axis_pos < X_AXIS_INF_LIMIT)
-					 {
-						  x_axis_pos++;
-						  OT_Screen(now_axis, '-');
-					 }else{
-						 StepperZ.step(-stepsPerRevolution);
-					 }
+						if(x_axis_pos < X_AXIS_INF_LIMIT)
+						{
+							OT_Screen(now_axis, '+');
+							delay(400);
+							refresh_lcd();
+							x_axis_pos = X_AXIS_INF_LIMIT;
+							Pos_Screen(speedNOW, z_axis_pos, x_axis_pos, y_axis_pos);
+						}else{
+						 StepperX.step(-stepsPerRevolution);
+						 refresh_lcd();
+						 Pos_Screen(speedNOW, z_axis_pos, x_axis_pos, y_axis_pos);
+						}
 					}
-					X_Screen();
-				break;
 			}
-
 			update_buttons();
 			if(set_button()){
 			  if(controlspindle==0)//desligado, vai ligar
@@ -564,6 +575,8 @@ void loop()
 				detachInterrupt(digitalPinToInterrupt(interruptPin));
 				controlspindle=0;
 			  }
+			  refresh_lcd();
+			  Pos_Screen(speedNOW, z_axis_pos, x_axis_pos, y_axis_pos);
 			}
 		break;
 

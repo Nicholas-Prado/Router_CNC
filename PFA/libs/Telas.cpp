@@ -91,6 +91,10 @@ void Y_Screen(){
   lcd.cursor();
 }
 
+void unset_cursor() {
+	lcd.noCursor();
+}
+
 void OT_Screen(char axis, char sinal) {
   lcd.clear();
 
